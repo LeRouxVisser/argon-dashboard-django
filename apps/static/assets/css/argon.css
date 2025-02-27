@@ -1900,8 +1900,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #5e72e4;
-  border-color: #5e72e4;
+  background-color: #004B23;
+  border-color: #004B23;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
   .btn-primary:hover {
     color: #fff;
@@ -5168,7 +5168,7 @@ button.bg-dark:focus {
   background-color: #0a0c0d !important; }
 
 .bg-default {
-  background-color: #172b4d !important; }
+  background-color: #F2C300 !important; }
 
 a.bg-default:hover, a.bg-default:focus,
 button.bg-default:hover,
@@ -14122,7 +14122,7 @@ button.bg-lighter:focus {
   background-color: #cbd3da !important; }
 
 .bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important; }
+  background: linear-gradient(87deg, #28a745 0, #004B23 100%) !important; }
 
 .bg-gradient-secondary {
   background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%) !important; }
@@ -14338,9 +14338,6 @@ button.section-darker:hover,
 button.section-darker:focus {
   background-color: black !important; }
 
-.bg-gradient-primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important; }
-
 .bg-gradient-secondary {
   background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%) !important; }
 
@@ -14423,7 +14420,7 @@ button.section-darker:focus {
   stroke: #212529; }
 
 .fill-default {
-  fill: #172b4d; }
+  fill: #F2C307; }
 
 .stroke-default {
   stroke: #172b4d; }
