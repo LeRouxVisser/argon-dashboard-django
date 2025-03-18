@@ -915,11 +915,11 @@ var SalesChart = (function() {
           }
         }
       },
-      data: {
-        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      data: { // TODO: Fetch CSV data
+        labels: [],
         datasets: [{
           label: 'Performance',
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+          data: []
         }]
       }
     });
@@ -928,12 +928,81 @@ var SalesChart = (function() {
 
     $chart.data('chart', salesChart);
 
-  };
+	var initialCsvPath = '/static/assets/data/test.csv';
+
+	    // Load initial data
+		loadCSVData(initialCsvPath, salesChart);
+
+		// Add event listener for tab changes
+		$('[data-toggle="chart"][data-target="#chart-sales-dark"]').on('click', function() {
+		  var csvPath = $(this).data('update').data.csvPath;
+		  loadCSVData(csvPath, salesChart);
+		});
+	  }
+	
+	  // Function to load and update chart data
+	  function loadCSVData(csvPath, chart) {
+		fetch(csvPath)
+		  .then(response => response.text())
+		  .then(data => {
+			const parsedData = parseCSV(data);
+			chart.data.labels = parsedData.labels;
+			chart.data.datasets[0].data = parsedData.values;
+			chart.update();
+		  })
+		  .catch(error => console.error('Error loading CSV:', error));
+	  }
+	
+	  // Function to parse CSV data
+	  function parseCSV(data) {
+		const lines = data.split('\n');
+		const labels = [];
+		const values = [];
+	
+		for (let i = 1; i < lines.length; i++) { // Skip header
+		  const [label, value] = lines[i].split(',');
+		  if (label && value) { // Check for empty lines
+			labels.push(label);
+			values.push(parseFloat(value));
+		  }
+		}
+	
+		return { labels, values };
+	  }
+
+	// Fetch CSV data (this is the one that is used to populate the sales chart)
+    // fetch('/static/assets/data/test.csv')
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     const parsedData = parseCSV(data);
+    //     $chart.data('chart').data.labels = parsedData.labels;
+    //     $chart.data('chart').data.datasets[0].data = parsedData.values;
+    //     $chart.data('chart').update();
+    //   });
+
+    // // Function to parse CSV data
+    // function parseCSV(data) {
+    //   const lines = data.split('\n');
+    //   const labels = [];
+    //   const values = [];
+
+    //   for (let i = 1; i < lines.length; i++) { // Skip header
+    //     const [label, value] = lines[i].split(',');
+    //     labels.push(label);
+    //     values.push(parseFloat(value));
+    //   }
+
+    //   return { labels, values };
+    // }
+
+
+//   };
 
 
   // Events
 
   if ($chart.length) {
+    console.log($chart);
     init($chart);
   }
 
