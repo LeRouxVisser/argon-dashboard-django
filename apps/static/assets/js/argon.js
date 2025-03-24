@@ -928,7 +928,7 @@ var SalesChart = (function() {
 
     $chart.data('chart', salesChart);
 
-	var initialCsvPath = '/static/assets/data/test.csv';
+	var initialCsvPath = $chart.data('csv-path'); // '/static/assets/data/test.csv';
 
 	    // Load initial data
 		loadCSVData(initialCsvPath, salesChart);
