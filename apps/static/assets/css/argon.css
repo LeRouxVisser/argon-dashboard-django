@@ -150,7 +150,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #5e72e4;
+  color: #212529;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -5104,7 +5104,7 @@ a.close.disabled {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #5e72e4 !important; }
+  background-color: #004B23 !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -10783,7 +10783,7 @@ a.text-darker:hover, a.text-darker:focus {
     transform: none; }
 
 .btn-neutral {
-  color: #5e72e4; }
+  color: #212529; }
 
 .btn-facebook {
   color: #fff;
