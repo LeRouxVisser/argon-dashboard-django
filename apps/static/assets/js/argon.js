@@ -865,7 +865,7 @@ var BarsChart = (function() {
 'use strict';
 
 //
-// Sales chart
+// Sales chart (Rename to dynamic Line chart)
 //
 
 var SalesChart = (function() {
@@ -915,7 +915,7 @@ var SalesChart = (function() {
           }
         }
       },
-      data: { // TODO: Fetch CSV data
+      data: {
         labels: [],
         datasets: [{
           label: 'Performance',
@@ -928,7 +928,7 @@ var SalesChart = (function() {
 
     $chart.data('chart', salesChart);
 
-	var initialCsvPath = $chart.data('csv-path'); // '/static/assets/data/test.csv';
+	var initialCsvPath = $chart.data('csv-path');
 
 	    // Load initial data
 		loadCSVData(initialCsvPath, salesChart);
@@ -969,35 +969,6 @@ var SalesChart = (function() {
 	
 		return { labels, values };
 	  }
-
-	// Fetch CSV data (this is the one that is used to populate the sales chart)
-    // fetch('/static/assets/data/test.csv')
-    //   .then(response => response.text())
-    //   .then(data => {
-    //     const parsedData = parseCSV(data);
-    //     $chart.data('chart').data.labels = parsedData.labels;
-    //     $chart.data('chart').data.datasets[0].data = parsedData.values;
-    //     $chart.data('chart').update();
-    //   });
-
-    // // Function to parse CSV data
-    // function parseCSV(data) {
-    //   const lines = data.split('\n');
-    //   const labels = [];
-    //   const values = [];
-
-    //   for (let i = 1; i < lines.length; i++) { // Skip header
-    //     const [label, value] = lines[i].split(',');
-    //     labels.push(label);
-    //     values.push(parseFloat(value));
-    //   }
-
-    //   return { labels, values };
-    // }
-
-
-//   };
-
 
   // Events
 
