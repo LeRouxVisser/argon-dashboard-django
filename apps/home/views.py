@@ -11,10 +11,10 @@ from django.urls import reverse
 
 
 @login_required(login_url="/login/")
-def index(request):
-    context = {'segment': 'index'}
+def profile(request):
+    context = {'segment': 'profile'}
 
-    html_template = loader.get_template('home/index.html')
+    html_template = loader.get_template('home/profile.html')
     return HttpResponse(html_template.render(context, request))
 
 

@@ -43,7 +43,11 @@
 
 <body class="">
 
-  {% include "includes/sidenav.html" %}
+  {% if 'profile' in segment %}
+    {% include "includes/sidenav.html" %}
+  {% else %}
+    {% include "includes/sidenav-dashboard.html" %}
+  {% endif %}
 
   <div class="main-content" id="panel">
 
